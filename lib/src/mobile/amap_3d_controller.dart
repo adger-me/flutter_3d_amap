@@ -2,19 +2,19 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_2d_amap/flutter_2d_amap.dart';
-import 'package:flutter_2d_amap/src/interface/amap_2d_controller.dart';
+import 'package:flutter_3d_amap/flutter_3d_amap.dart';
+import 'package:flutter_3d_amap/src/interface/amap_3d_controller.dart';
 
-class AMap2DMobileController extends AMap2DController {
-  AMap2DMobileController(
+class AMap3DMobileController extends AMap3DController {
+  AMap3DMobileController(
       int id,
       this._widget,
-      ) : _channel = MethodChannel('plugins.weilu/flutter_2d_amap_$id') {
+      ) : _channel = MethodChannel('plugins.weilu/flutter_3d_amap_$id') {
     _channel.setMethodCallHandler(_handleMethod);
   }
   final MethodChannel _channel;
 
-  final AMap2DView _widget;
+  final AMap3DView _widget;
 
   Future<dynamic> _handleMethod(MethodCall call) async {
     final String method = call.method;

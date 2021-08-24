@@ -1,4 +1,4 @@
-package com.weilu.flutter.flutter_2d_amap;
+package com.weilu.flutter.flutter_3d_amap;
 
 import android.Manifest;
 import android.app.Activity;
@@ -12,7 +12,7 @@ import io.flutter.plugin.common.PluginRegistry;
  * @author weilu
  * 2019/6/28 0028 09:03.
  */
-public class AMap2DDelegate implements PluginRegistry.RequestPermissionsResultListener {
+public class AMap3Delegate implements PluginRegistry.RequestPermissionsResultListener {
 
     private static final int REQUEST_PERMISSION = 6666;
     
@@ -51,8 +51,8 @@ public class AMap2DDelegate implements PluginRegistry.RequestPermissionsResultLi
     private RequestPermission mRequestPermission;
     
     private final PermissionManager permissionManager;
-    
-    AMap2DDelegate(final Activity activity) {
+
+    AMap3Delegate(final Activity activity) {
         
         permissionManager = new PermissionManager() {
             @Override

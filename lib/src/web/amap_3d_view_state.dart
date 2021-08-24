@@ -6,13 +6,13 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_2d_amap/flutter_2d_amap.dart';
-import 'package:flutter_2d_amap/src/web/amap_2d_controller.dart';
-import 'package:flutter_2d_amap/src/web/amapjs.dart';
-import 'package:flutter_2d_amap/src/web/loaderjs.dart';
+import 'package:flutter_3d_amap/flutter_3d_amap.dart';
+import 'package:flutter_3d_amap/src/web/amap_3d_controller.dart';
+import 'package:flutter_3d_amap/src/web/amapjs.dart';
+import 'package:flutter_3d_amap/src/web/loaderjs.dart';
 import 'package:js/js.dart';
 
-class AMap2DViewState extends State<AMap2DView> {
+class AMap2DViewState extends State<AMap3DView> {
 
   /// 加载的插件
   final List<String> plugins = <String>['AMap.Geolocation', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.ToolBar'];
@@ -24,7 +24,7 @@ class AMap2DViewState extends State<AMap2DView> {
   void _onPlatformViewCreated() {
 
     final Object promise = load(LoaderOptions(
-      key: Flutter2dAMap.webKey,
+      key: Flutter3dAMap.webKey,
       version: '1.4.15', // 2.0需要修改GeolocationOptions属性
       plugins: plugins,
     )) as Object;
@@ -41,7 +41,7 @@ class AMap2DViewState extends State<AMap2DView> {
         _aMap.addControl(Scale());
         _aMap.addControl(ToolBar());
 
-        final AMap2DWebController controller = AMap2DWebController(_aMap, widget);
+        final AMap3DWebController controller = AMap3DWebController(_aMap, widget);
         if (widget.onAMap2DViewCreated != null) {
           widget.onAMap2DViewCreated!(controller);
         }

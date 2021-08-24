@@ -1,4 +1,4 @@
-package com.weilu.flutter.flutter_2d_amap;
+package com.weilu.flutter.flutter_3d_amap;
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -7,16 +7,16 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.BinaryMessenger;
 
 /**
- * Flutter2dAmapPlugin
+ * Flutter3dAmapPlugin
  * @author weilu
  * */
-public class Flutter2dAmapPlugin implements FlutterPlugin, ActivityAware{
+public class Flutter3dAmapPlugin implements FlutterPlugin, ActivityAware{
 
-  private AMap2DDelegate delegate;
+  private AMap3Delegate delegate;
   private FlutterPluginBinding pluginBinding;
   private ActivityPluginBinding activityBinding;
   
-  public Flutter2dAmapPlugin() {}
+  public Flutter3dAmapPlugin() {}
   
 //  /** Plugin registration. */
 //  public static void registerWith(Registrar registrar) {
@@ -44,10 +44,10 @@ public class Flutter2dAmapPlugin implements FlutterPlugin, ActivityAware{
     activityBinding = binding;
     
     BinaryMessenger messenger = pluginBinding.getBinaryMessenger();
-    AMap2DFactory mFactory = new AMap2DFactory(messenger, null);
+    AMap3DFactory mFactory = new AMap3DFactory(messenger, null);
     pluginBinding.getPlatformViewRegistry().registerViewFactory("plugins.weilu/flutter_2d_amap", mFactory);
     
-    delegate = new AMap2DDelegate(binding.getActivity());
+    delegate = new AMap3Delegate(binding.getActivity());
     binding.addRequestPermissionsResultListener(delegate);
     mFactory.setDelegate(delegate);
   }

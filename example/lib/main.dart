@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_2d_amap/flutter_2d_amap.dart';
+import 'package:flutter_3d_amap/flutter_3d_amap.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Flutter2dAMap.setApiKey(
+  Flutter3dAMap.setApiKey(
     iOSKey: '1a8f6a489483534a9f2ca96e4eeeb9b3',
     webKey: '4e479545913a3a180b3cffc267dad646',
   ).then((value) => runApp(const MyApp()));
@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   List<PoiSearch> _list = [];
   int _index = 0;
   final ScrollController _controller = ScrollController();
-  late AMap2DController _aMap2DController;
+  late AMap3DController _aMap3DController;
   
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               Expanded(
                 flex: 9,
-                child: AMap2DView(
+                child: AMap3DView(
                   onPoiSearched: (result) {
                     if (result.isEmpty) {
                       print('无搜索结果返回');
@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
                     });
                   },
                   onAMap2DViewCreated: (controller) {
-                    _aMap2DController = controller;
+                    _aMap3DController = controller;
                   },
                 ),
               ),
@@ -67,8 +67,8 @@ class _MyAppState extends State<MyApp> {
                       onTap: () {
                         setState(() {
                           _index = index;
-                          if (_aMap2DController != null) {
-                            _aMap2DController.move(_list[index].latitude ?? '', _list[index].longitude ?? '');
+                          if (_aMap3DController != null) {
+                            _aMap3DController.move(_list[index].latitude ?? '', _list[index].longitude ?? '');
                           }
                         });
                       },

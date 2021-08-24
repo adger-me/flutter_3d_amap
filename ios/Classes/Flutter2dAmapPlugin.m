@@ -5,7 +5,7 @@
 @implementation Flutter2dAmapPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"plugins.weilu/flutter_2d_amap_"
+      methodChannelWithName:@"plugins.weilu/flutter_3d_amap_"
             binaryMessenger:[registrar messenger]];
   Flutter2dAmapPlugin* instance = [[Flutter2dAmapPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];

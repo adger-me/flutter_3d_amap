@@ -1,5 +1,5 @@
 
-abstract class AMap2DController {
+abstract class AMap3DController {
   
   /// city：cityName（中文或中文全拼）、cityCode均可
   Future<void> search(String keyWord, {String city = ''});

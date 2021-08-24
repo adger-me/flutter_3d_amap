@@ -1,12 +1,12 @@
 
 import 'package:js/js.dart';
-import 'package:flutter_2d_amap/flutter_2d_amap.dart';
-import 'package:flutter_2d_amap/src/interface/amap_2d_controller.dart';
-import 'package:flutter_2d_amap/src/web/amapjs.dart';
+import 'package:flutter_3d_amap/flutter_3d_amap.dart';
+import 'package:flutter_3d_amap/src/interface/amap_3d_controller.dart';
+import 'package:flutter_3d_amap/src/web/amapjs.dart';
 
-class AMap2DWebController extends AMap2DController {
+class AMap3DWebController extends AMap3DController {
 
-  AMap2DWebController(this._aMap, this._widget) {
+  AMap3DWebController(this._aMap, this._widget) {
 
     _placeSearchOptions = PlaceSearchOptions(
       extensions: 'all',
@@ -33,7 +33,7 @@ class AMap2DWebController extends AMap2DController {
     location();
   }
 
-  final AMap2DView _widget;
+  final AMap3DView _widget;
   final AMap _aMap;
   late Geolocation _geolocation;
   MarkerOptions? _markerOptions;

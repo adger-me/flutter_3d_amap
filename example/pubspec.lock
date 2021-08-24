@@ -55,7 +55,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_2d_amap:
+  flutter_3d_amap:
     dependency: "direct dev"
     description:
       path: ".."

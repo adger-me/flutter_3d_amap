@@ -1,6 +1,6 @@
-name: flutter_2d_amap_example
-description: Demonstrates how to use the flutter_2d_amap plugin.
-publish_to: 'flutter_2d_amap'
+name: flutter_3d_amap_example
+description: Demonstrates how to use the flutter_3d_amap plugin.
+publish_to: 'flutter_3d_amap'
 
 environment:
   sdk: ">=2.12.0-0 <3.0.0"
@@ -13,7 +13,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_2d_amap:
+  flutter_3d_amap:
     path: ../
 
 # For information on the generic Dart part of this file, see the

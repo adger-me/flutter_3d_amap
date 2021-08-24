@@ -5,16 +5,16 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_2d_amap/flutter_2d_amap.dart';
-import 'package:flutter_2d_amap/src/mobile/amap_2d_controller.dart';
+import 'package:flutter_3d_amap/flutter_3d_amap.dart';
+import 'package:flutter_3d_amap/src/mobile/amap_3d_controller.dart';
 
 
-class AMap2DViewState extends State<AMap2DView> {
+class AMap3DViewState extends State<AMap3DView> {
 
-  final Completer<AMap2DMobileController> _controller = Completer<AMap2DMobileController>();
+  final Completer<AMap3DMobileController> _controller = Completer<AMap3DMobileController>();
 
   void _onPlatformViewCreated(int id) {
-    final AMap2DMobileController controller = AMap2DMobileController(id, widget);
+    final AMap3DMobileController controller = AMap3DMobileController(id, widget);
     _controller.complete(controller);
     if (widget.onAMap2DViewCreated != null) {
       widget.onAMap2DViewCreated!(controller);
@@ -46,7 +46,7 @@ class AMap2DViewState extends State<AMap2DView> {
 class _CreationParams {
   _CreationParams({this.isPoiSearch = true});
 
-  static _CreationParams fromWidget(AMap2DView widget) {
+  static _CreationParams fromWidget(AMap3DView widget) {
     return _CreationParams(
       isPoiSearch: widget.isPoiSearch,
     );
