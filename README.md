@@ -27,21 +27,20 @@
 pubspec.yaml 添加：
 
 ```
-flutter_2d_amap:
-    git:
-      url: https://github.com/simplezhli/flutter_2d_amap.git
+flutter_3d_amap:
+    git: https://github.com/adger-me/flutter_3d_amap.git
 ```
 
 使用：
 
 ```dart
-import 'package:flutter_2d_amap/flutter_2d_amap.dart';
+import 'package:flutter_3d_amap/flutter_3d_amap.dart';
 
-AMap2DView(
+AMap3DView(
   onPoiSearched: (result) {
 
   },
-  onAMap2DViewCreated: (controller) {
+  onAMap3DViewCreated: (controller) {
 
   },
 )
@@ -86,7 +85,7 @@ AndroidManifest.xml 中添加：
 
 ```dart
 
-Flutter2dAMap.setApiKey(iOSKey: '配置你的key');
+Flutter3dAMap.setApiKey(iOSKey: '配置你的key');
 
 ```
 
@@ -119,7 +118,7 @@ Flutter2dAMap.setApiKey(iOSKey: '配置你的key');
 
 ```dart
 
-Flutter2dAMap.setApiKey(webKey: '配置你的key');
+Flutter3dAMap.setApiKey(webKey: '配置你的key');
 
 ```
 
