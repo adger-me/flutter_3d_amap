@@ -1,5 +1,5 @@
 PODS:
-  - AMap2DMap (5.6.1):
+  - AMap3DMap (5.6.1):
     - AMapFoundation (~> 1.4)
   - AMapFoundation (1.6.5)
   - AMapLocation (2.6.7):
@@ -7,7 +7,7 @@ PODS:
   - AMapSearch (7.7.0):
     - AMapFoundation (~> 1.6.4)
   - Flutter (1.0.0)
-  - flutter_2d_amap (0.0.1):
+  - flutter_3d_amap (0.0.1):
     - AMap2DMap
     - AMapLocation
     - AMapSearch
@@ -15,7 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_2d_amap (from `.symlinks/plugins/flutter_2d_amap/ios`)
+  - flutter_3d_amap (from `.symlinks/plugins/flutter_2d_amap/ios`)
 
 SPEC REPOS:
   trunk:

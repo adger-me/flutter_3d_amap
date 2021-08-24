@@ -1,11 +1,11 @@
 //
-//  FlutterAMap2D.m
-//  flutter_2d_amap
+//  FlutterAMap3D.m
+//  flutter_3d_amap
 //
-//  Created by weilu on 2019/7/1.
+//  Created by weilu on 2021/8/24.
 //
 
-#import "FlutterAMap2D.h"
+#import "FlutterAMap3D.h"
 #import <MAMapKit/MAMapKit.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <CoreLocation/CoreLocation.h>
@@ -13,7 +13,7 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-@implementation FlutterAMap2DFactory {
+@implementation FlutterAMap3DFactory {
     NSObject<FlutterBinaryMessenger>* _messenger;
 }
     
@@ -32,24 +32,24 @@
 - (NSObject<FlutterPlatformView>*)createWithFrame:(CGRect)frame
                                    viewIdentifier:(int64_t)viewId
                                         arguments:(id _Nullable)args {
-    FlutterAMap2DController* aMap2DController = [[FlutterAMap2DController alloc] initWithFrame:frame
+    FlutterAMap3DController* aMap3DController = [[FlutterAMap3DController alloc] initWithFrame:frame
                                                                                 viewIdentifier:viewId
                                                                                      arguments:args
                                                                                binaryMessenger:_messenger];
-    return aMap2DController;
+    return aMap3DController;
 }
     
 @end
 
 
-@interface FlutterAMap2DController()<AMapLocationManagerDelegate, AMapSearchDelegate, CLLocationManagerDelegate, MAMapViewDelegate>
+@interface FlutterAMap3DController()<AMapLocationManagerDelegate, AMapSearchDelegate, CLLocationManagerDelegate, MAMapViewDelegate>
 
     @property (strong, nonatomic) CLLocationManager *mannger;
     @property (strong, nonatomic) AMapLocationManager *locationManager;
     @property (strong, nonatomic) AMapSearchAPI *search;
 @end
 
-@implementation FlutterAMap2DController {
+@implementation FlutterAMap3DController {
     MAMapView* _mapView;
     int64_t _viewId;
     FlutterMethodChannel* _channel;
@@ -109,7 +109,7 @@ NSString* _types = @"010000|010100|020000|030000|040000|050000|050100|060000|060
 }
 
 #pragma mark 点击地图方法
-- (void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate3D)coordinate {
     [self->_mapView setCenterCoordinate:coordinate animated:YES];
     [self drawMarkers:coordinate.latitude lon:coordinate.longitude];
     [self searchPOI:coordinate.latitude lon:coordinate.longitude];
@@ -117,7 +117,7 @@ NSString* _types = @"010000|010100|020000|030000|040000|050000|050100|060000|060
 
 //接收位置更新,实现AMapLocationManagerDelegate代理的amapLocationManager:didUpdateLocation方法，处理位置更新
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode{
-    CLLocationCoordinate2D center;
+    CLLocationCoordinate3D center;
     center.latitude = location.coordinate.latitude;
     center.longitude = location.coordinate.longitude;
     [_mapView setZoomLevel:17 animated: YES];
@@ -140,7 +140,7 @@ NSString* _types = @"010000|010100|020000|030000|040000|050000|050100|060000|060
     [response.pois enumerateObjectsUsingBlock:^(AMapPOI *obj, NSUInteger idx, BOOL *stop) {
         
         if (idx == 0) {
-            CLLocationCoordinate2D center;
+            CLLocationCoordinate3D center;
             center.latitude = obj.location.latitude;
             center.longitude = obj.location.longitude;
             [self->_mapView setZoomLevel:17 animated: YES];
@@ -188,10 +188,10 @@ NSString* _types = @"010000|010100|020000|030000|040000|050000|050100|060000|060
 - (void)drawMarkers:(CGFloat)lat lon:(CGFloat)lon {
     if (self->_pointAnnotation == NULL) {
         self->_pointAnnotation = [[MAPointAnnotation alloc] init];
-        self->_pointAnnotation.coordinate = CLLocationCoordinate2DMake(lat, lon);
+        self->_pointAnnotation.coordinate = CLLocationCoordinate3DMake(lat, lon);
         [self->_mapView addAnnotation:self->_pointAnnotation];
     } else {
-        self->_pointAnnotation.coordinate = CLLocationCoordinate2DMake(lat, lon);
+        self->_pointAnnotation.coordinate = CLLocationCoordinate3DMake(lat, lon);
     }
 }
 
@@ -221,7 +221,7 @@ NSString* _types = @"010000|010100|020000|030000|040000|050000|050100|060000|060
     } else if ([[call method] isEqualToString:@"move"]) {
         NSString* lat = [call arguments][@"lat"];
         NSString* lon = [call arguments][@"lon"];
-        CLLocationCoordinate2D center;
+        CLLocationCoordinate3D center;
         center.latitude = [lat doubleValue];
         center.longitude = [lon doubleValue];
         [self->_mapView setCenterCoordinate:center animated:YES];

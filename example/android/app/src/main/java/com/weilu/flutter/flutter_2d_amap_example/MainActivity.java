@@ -1,4 +1,4 @@
-package com.weilu.flutter.flutter_2d_amap_example;
+package com.weilu.flutter.flutter_3d_amap_example;
 
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;

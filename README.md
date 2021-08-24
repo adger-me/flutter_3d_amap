@@ -1,12 +1,13 @@
-# flutter_2d_amap
+# flutter_3d_amap
 
-高德2D地图插件
+高德3D地图插件
 
-本插件主要服务于 [flutter_deer](https://github.com/simplezhli/flutter_deer)。仅保持现有功能，没有的功能可自行拓展。
+本插件基于 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap) 修改而来，功能一样，IOS 功能暂未替换成 3dmap
 
 ## 效果展示
 
-<img src="preview/Screenshot_1.jpg" width="450px"/>
+可查看 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap)
+
 
 ## 实现功能包括
 

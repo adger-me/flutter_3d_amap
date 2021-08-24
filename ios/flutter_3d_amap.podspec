@@ -2,7 +2,7 @@
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
 #
 Pod::Spec.new do |s|
-  s.name             = 'flutter_2d_amap'
+  s.name             = 'flutter_3d_amap'
   s.version          = '0.0.1'
   s.summary          = 'A new Flutter plugin.'
   s.description      = <<-DESC
@@ -15,7 +15,7 @@ A new Flutter plugin.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'AMap2DMap'
+  s.dependency 'AMap3DMap'
   s.dependency 'AMapSearch'
   s.dependency 'AMapLocation'
   s.static_framework = true

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.weilu.flutter.flutter_2d_amap_example">
+    package="com.weilu.flutter.flutter_3d_amap_example">
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -9,7 +9,7 @@
     <application
         android:networkSecurityConfig="@xml/network_security_config"
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_2d_amap_example"
+        android:label="flutter_3d_amap_example"
         android:icon="@mipmap/ic_launcher">
 
         <meta-data

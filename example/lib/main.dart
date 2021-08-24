@@ -10,26 +10,24 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-
-  const MyApp({Key? key}): super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
-
   List<PoiSearch> _list = [];
   int _index = 0;
   final ScrollController _controller = ScrollController();
   late AMap3DController _aMap3DController;
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('flutter_2d_amap'),
+          title: const Text('flutter_3d_amap'),
         ),
         body: SafeArea(
           child: Column(
@@ -42,7 +40,9 @@ class _MyAppState extends State<MyApp> {
                       print('无搜索结果返回');
                       return;
                     }
-                    _controller.animateTo(0.0, duration: const Duration(milliseconds: 10), curve: Curves.ease);
+                    _controller.animateTo(0.0,
+                        duration: const Duration(milliseconds: 10),
+                        curve: Curves.ease);
                     setState(() {
                       _index = 0;
                       _list = result;
@@ -56,43 +56,44 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 flex: 11,
                 child: ListView.separated(
-                  controller: _controller,
-                  shrinkWrap: true,
-                  itemCount: _list.length,
-                  separatorBuilder: (_, index) {
-                    return const Divider(height: 0.6);
-                  },
-                  itemBuilder: (_, index) {
-                    return InkWell(
-                      onTap: () {
-                        setState(() {
-                          _index = index;
-                          if (_aMap3DController != null) {
-                            _aMap3DController.move(_list[index].latitude ?? '', _list[index].longitude ?? '');
-                          }
-                        });
-                      },
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        height: 50.0,
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              child: Text(
-                                '${_list[index].provinceName!} ${_list[index].cityName!} ${_list[index].adName!} ${_list[index].title!}',
+                    controller: _controller,
+                    shrinkWrap: true,
+                    itemCount: _list.length,
+                    separatorBuilder: (_, index) {
+                      return const Divider(height: 0.6);
+                    },
+                    itemBuilder: (_, index) {
+                      return InkWell(
+                        onTap: () {
+                          setState(() {
+                            _index = index;
+                            if (_aMap3DController != null) {
+                              _aMap3DController.move(
+                                  _list[index].latitude ?? '',
+                                  _list[index].longitude ?? '');
+                            }
+                          });
+                        },
+                        child: Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          height: 50.0,
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: Text(
+                                  '${_list[index].provinceName!} ${_list[index].cityName!} ${_list[index].adName!} ${_list[index].title!}',
+                                ),
                               ),
-                            ),
-                            Opacity(
-                              opacity: _index == index ? 1 : 0,
-                              child: const Icon(Icons.done, color: Colors.blue)
-                            )
-                          ],
+                              Opacity(
+                                  opacity: _index == index ? 1 : 0,
+                                  child: const Icon(Icons.done,
+                                      color: Colors.blue))
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  }
-                ),
+                      );
+                    }),
               )
             ],
           ),

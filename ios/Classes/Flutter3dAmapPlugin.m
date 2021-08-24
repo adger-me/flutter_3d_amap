@@ -1,18 +1,18 @@
-#import "Flutter2dAmapPlugin.h"
+#import "Flutter3dAmapPlugin.h"
 #import "AMapFoundationKit/AMapFoundationKit.h"
-#import "FlutterAMap2D.h"
+#import "FlutterAMap3D.h"
 
-@implementation Flutter2dAmapPlugin
+@implementation Flutter3dAmapPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
       methodChannelWithName:@"plugins.weilu/flutter_3d_amap_"
             binaryMessenger:[registrar messenger]];
-  Flutter2dAmapPlugin* instance = [[Flutter2dAmapPlugin alloc] init];
+  Flutter3dAmapPlugin* instance = [[Flutter3dAmapPlugin alloc] init];
   [registrar addMethodCallDelegate:instance channel:channel];
 
-  FlutterAMap2DFactory* aMap2DFactory =
-  [[FlutterAMap2DFactory alloc] initWithMessenger:registrar.messenger];
-  [registrar registerViewFactory:aMap2DFactory withId:@"plugins.weilu/flutter_2d_amap"];
+  FlutterAMap3DFactory* aMap3DFactory =
+  [[FlutterAMap3DFactory alloc] initWithMessenger:registrar.messenger];
+  [registrar registerViewFactory:aMap3DFactory withId:@"plugins.weilu/flutter_3d_amap"];
 }
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {

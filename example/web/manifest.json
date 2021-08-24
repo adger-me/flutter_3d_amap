@@ -1,11 +1,11 @@
 {
-    "name": "flutter_2d_amap_example",
-    "short_name": "flutter_2d_amap_example",
+    "name": "flutter_3d_amap_example",
+    "short_name": "flutter_3d_amap_example",
     "start_url": ".",
     "display": "minimal-ui",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Demonstrates how to use the flutter_2d_amap plugin.",
+    "description": "Demonstrates how to use the flutter_3d_amap plugin.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

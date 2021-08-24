@@ -1,8 +1,8 @@
 //
-//  FlutterAMap2D.h
-//  flutter_2d_amap
+//  FlutterAMap3D.h
+//  flutter_3d_amap
 //
-//  Created by weilu on 2019/7/1.
+//  Created by weilu on 2021/8/24.
 //
 
 #import <Flutter/Flutter.h>
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FlutterAMap2DController : NSObject<FlutterPlatformView>
+@interface FlutterAMap3DController : NSObject<FlutterPlatformView>
     
 - (instancetype)initWithFrame:(CGRect)frame
                viewIdentifier:(int64_t)viewId
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface FlutterAMap2DFactory : NSObject<FlutterPlatformViewFactory>
+@interface FlutterAMap3DFactory : NSObject<FlutterPlatformViewFactory>
 - (instancetype)initWithMessenger:(NSObject<FlutterBinaryMessenger>*)messenger;
 @end
 

@@ -26,7 +26,7 @@ public class Flutter3dAmapPlugin implements FlutterPlugin, ActivityAware{
 //    // 添加权限回调监听
 //    final AMap2DDelegate delegate = new AMap2DDelegate(registrar.activity());
 //    registrar.addRequestPermissionsResultListener(delegate);
-//    registrar.platformViewRegistry().registerViewFactory("plugins.weilu/flutter_2d_amap", new AMap2DFactory(registrar.messenger(), delegate));
+//    registrar.platformViewRegistry().registerViewFactory("plugins.weilu/flutter_3d_amap", new AMap2DFactory(registrar.messenger(), delegate));
 //  }
 
   @Override
@@ -45,7 +45,7 @@ public class Flutter3dAmapPlugin implements FlutterPlugin, ActivityAware{
     
     BinaryMessenger messenger = pluginBinding.getBinaryMessenger();
     AMap3DFactory mFactory = new AMap3DFactory(messenger, null);
-    pluginBinding.getPlatformViewRegistry().registerViewFactory("plugins.weilu/flutter_2d_amap", mFactory);
+    pluginBinding.getPlatformViewRegistry().registerViewFactory("plugins.weilu/flutter_3d_amap", mFactory);
     
     delegate = new AMap3Delegate(binding.getActivity());
     binding.addRequestPermissionsResultListener(delegate);

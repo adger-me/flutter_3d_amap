@@ -1,5 +1,3 @@
-
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -8,13 +6,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_3d_amap/flutter_3d_amap.dart';
 import 'package:flutter_3d_amap/src/mobile/amap_3d_controller.dart';
 
-
 class AMap3DViewState extends State<AMap3DView> {
-
-  final Completer<AMap3DMobileController> _controller = Completer<AMap3DMobileController>();
+  final Completer<AMap3DMobileController> _controller =
+      Completer<AMap3DMobileController>();
 
   void _onPlatformViewCreated(int id) {
-    final AMap3DMobileController controller = AMap3DMobileController(id, widget);
+    final AMap3DMobileController controller =
+        AMap3DMobileController(id, widget);
     _controller.complete(controller);
     if (widget.onAMap2DViewCreated != null) {
       widget.onAMap2DViewCreated!(controller);
@@ -25,20 +23,21 @@ class AMap3DViewState extends State<AMap3DView> {
   Widget build(BuildContext context) {
     if (defaultTargetPlatform == TargetPlatform.android) {
       return AndroidView(
-        viewType: 'plugins.weilu/flutter_2d_amap',
+        viewType: 'plugins.weilu/flutter_3d_amap',
         onPlatformViewCreated: _onPlatformViewCreated,
         creationParams: _CreationParams.fromWidget(widget).toMap(),
         creationParamsCodec: const StandardMessageCodec(),
       );
     } else if (defaultTargetPlatform == TargetPlatform.iOS) {
       return UiKitView(
-        viewType: 'plugins.weilu/flutter_2d_amap',
+        viewType: 'plugins.weilu/flutter_3d_amap',
         onPlatformViewCreated: _onPlatformViewCreated,
         creationParams: _CreationParams.fromWidget(widget).toMap(),
         creationParamsCodec: const StandardMessageCodec(),
       );
     }
-    return Text('$defaultTargetPlatform is not yet supported by the flutter_2d_amap plugin');
+    return Text(
+        '$defaultTargetPlatform is not yet supported by the flutter_3d_amap plugin');
   }
 }
 
