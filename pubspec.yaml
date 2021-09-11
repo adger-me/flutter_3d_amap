@@ -1,6 +1,6 @@
 name: flutter_3d_amap
 description: A flutter plugin for 3D amap.
-version: 0.2.0+2
+version: 1.0.0
 homepage: 'https://github.com/adger-me/flutter_3d_amap'
 
 publish_to: 'none'

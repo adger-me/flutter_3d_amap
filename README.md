@@ -2,7 +2,7 @@
 
 高德3D地图插件
 
-本插件基于 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap) 修改而来，功能一样，IOS 功能暂未替换成 3dmap
+本插件基于 [flutter_2d_amap](https://github.com/simplezhli/flutter_2d_amap) 修改而来，功能一样
 
 ## 效果展示
 
